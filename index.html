@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-lv0/zpdueiwqAgjRJLg68uwfe7WAxbyAAsxCsjPWgco='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-yKRF6tDN5BblBIrbxfqWQJpj3MyQ019eOeqiVASXTLQ='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}
 #slot-dialog{width:min(94vw,520px);max-height:85vh;max-height:85dvh;padding:0;border:1px solid #40506a;border-radius:17px;background:#151f31;color:#e7eefb;overflow:auto}
 #slot-dialog::backdrop{background:#050912b8}
@@ -9,7 +9,7 @@
 .slot-actions{display:flex;align-items:center;gap:6px}
 .slot .gear{min-width:44px;min-height:44px;font-size:21px}
 </style></head><body>
-<header><div><h1>Chameleon Ultra</h1><div class="muted">iPhone · Bluefy · BLE 控制台</div></div><span class="pill" id="status">尚未連線</span></header>
+<header><div><h1>Chameleon Ultra</h1><div class="muted">iPhone · Bluefy · BLE 控制台<br>卡槽每 0.5 秒更新 · 電量每 30 秒更新</div></div><span class="pill" id="status">尚未連線</span></header>
 <section class="card"><div class="row"><button class="primary" id="connect" disabled>連接裝置</button><button id="disconnect" disabled>中斷連線</button><button id="refresh" disabled>重新讀取</button></div><p class="hint">首次連線請在 Bluefy 中允許藍牙，並確保其他 Chameleon App 已斷線。</p><div id="error" role="status"></div></section>
 <section class="card"><h2>裝置資訊</h2><div class="grid"><div class="metric"><small>韌體版本</small><strong id="version">—</strong></div><div class="metric"><small>Git 版本</small><strong id="git">—</strong></div><div class="metric"><small>電量</small><strong id="battery">—</strong></div><div class="metric"><small>運作模式</small><strong id="mode">—</strong></div><div class="metric"><small>目前卡槽</small><strong id="active">—</strong></div><div class="metric"><small>裝置型號</small><strong id="model">—</strong></div><div class="metric"><small>BLE 位址</small><strong id="ble">—</strong></div></div></section>
 <section class="card"><div class="row spread"><h2>8 個卡槽</h2><span class="muted">切換不會清除資料</span></div><div id="slots" class="muted">連線後顯示卡槽狀態</div></section>
@@ -147,6 +147,58 @@ let fieldResetStatus = '連線後讀取裝置設定';
 let cardSettings = [];
 let editingSlot = null;
 const slotDialog = $('slot-dialog');
+let pollTimer = null;
+let pollPromise = null;
+let lastBatteryRead = 0;
+let lastPollError = '';
+
+function stopPolling() {
+  clearTimeout(pollTimer);
+  pollTimer = null;
+}
+
+function schedulePolling(delay = 500) {
+  stopPolling();
+  if (!linked || busy || slotDialog.open || document.hidden) return;
+  pollTimer = setTimeout(pollStatus, delay);
+}
+
+async function readBattery() {
+  const battery = await ultra.cmdGetBatteryInfo();
+  if (!linked) return;
+  lastBatteryRead = Date.now();
+  show('battery', battery.level + '% · ' + (battery.voltage / 1000).toFixed(2) + ' V');
+}
+
+async function pollStatus() {
+  pollTimer = null;
+  if (!linked || busy || pollPromise || slotDialog.open || document.hidden) return;
+  const started = Date.now();
+  pollPromise = (async () => {
+    const slot = await ultra.cmdSlotGetActive();
+    if (!linked || busy || document.hidden) return;
+    if (!Number.isInteger(slot) || slot < 0 || slot > 7) throw new Error('無法確認目前卡槽');
+    if (slot !== active) {
+      await readSlots();
+    }
+    if (!linked || busy || document.hidden) return;
+    if (Date.now() - lastBatteryRead >= 30000) await readBattery();
+  })();
+  let delay = 500;
+  try {
+    await pollPromise;
+    lastPollError = '';
+  } catch (error) {
+    if (linked && error.message !== lastPollError) {
+      log('自動更新失敗：' + error.message);
+      lastPollError = error.message;
+    }
+    delay = 3000;
+  } finally {
+    pollPromise = null;
+    schedulePolling(Math.max(0, delay - (Date.now() - started)));
+  }
+}
 
 const classicTypes = ['MIFARE_Mini', 'MIFARE_1024', 'MIFARE_2048', 'MIFARE_4096'];
 const ultralightTypes = ['MF0_ICU1', 'MF0_ICU2', 'MF0_UL11', 'MF0_UL21', 'NTAG_210', 'NTAG_212', 'NTAG_213', 'NTAG_215', 'NTAG_216'];
@@ -205,15 +257,18 @@ function updateControls() {
 async function run(action) {
   if (busy) return;
   busy = true;
+  stopPolling();
   $('error').textContent = '';
   updateControls();
   try {
+    await pollPromise?.catch(() => {});
     await action();
   } catch (error) {
     showError(error);
   } finally {
     busy = false;
     updateControls();
+    schedulePolling();
     if (editingSlot !== null && !slotDialog.open) $('slots').querySelector('.gear')?.focus();
   }
 }
@@ -385,11 +440,15 @@ function renderCardSettings() {
 }
 
 function openSlotDialog() {
+  return run(async () => {
+  await readSlots();
+  if (!linked || active === null) return;
   editingSlot = active;
   show('slot-dialog-title', '卡槽 ' + (active + 1) + ' 設定');
   renderDraft();
   $('dialog-error').hidden = true;
   slotDialog.showModal();
+  });
 }
 
 function renderDraft() {
@@ -482,8 +541,12 @@ async function readSlots() {
 async function readAll() {
   show('version', await read('cmdGetAppVersion', '韌體版本'));
   show('git', await read('cmdGetGitVersion', 'Git 版本'));
-  const battery = await read('cmdGetBatteryInfo', '電量');
-  show('battery', battery ? battery.level + '% · ' + (battery.voltage / 1000).toFixed(2) + ' V' : null);
+  try {
+    if (linked) await readBattery();
+  } catch (error) {
+    show('battery', null);
+    log('電量讀取失敗：' + error.message);
+  }
   const mode = await read('cmdGetDeviceMode', '運作模式');
   show('mode', mode === sdk.DeviceMode.TAG ? '模擬卡（TAG）' : mode === sdk.DeviceMode.READER ? '讀卡（READER）' : mode);
   const model = await read('cmdGetDeviceModel', '裝置型號');
@@ -494,6 +557,9 @@ async function readAll() {
 }
 
 function disconnected() {
+  stopPolling();
+  lastBatteryRead = 0;
+  lastPollError = '';
   if (slotDialog.open) slotDialog.close();
   if (linked) log('BLE 已中斷');
   linked = false;
@@ -539,6 +605,7 @@ slotDialog.addEventListener('cancel', event => {
 slotDialog.addEventListener('close', () => {
   editingSlot = null;
   $('slots').querySelector('.gear')?.focus();
+  schedulePolling(0);
 });
 $('slot-save').onclick = () => run(async () => {
   $('dialog-error').hidden = true;
@@ -562,7 +629,12 @@ $('copylog').onclick = async () => {
 };
 $('clearlog').onclick = () => { $('log').textContent = waiting; };
 window.addEventListener('pagehide', () => {
+  stopPolling();
   if (ultra?.isConnected()) ultra.disconnect().catch(() => {});
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopPolling();
+  else schedulePolling(0);
 });
 
 renderSlots();
