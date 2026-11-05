@@ -1,22 +1,41 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-V9HEdTamWX+5PCtd4Incj1khj85hhuH9hRtucvTOyBc='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
-:root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}</style></head><body>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-lv0/zpdueiwqAgjRJLg68uwfe7WAxbyAAsxCsjPWgco='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}
+#slot-dialog{width:min(94vw,520px);max-height:85vh;max-height:85dvh;padding:0;border:1px solid #40506a;border-radius:17px;background:#151f31;color:#e7eefb;overflow:auto}
+#slot-dialog::backdrop{background:#050912b8}
+.dialog-body{padding:18px}
+.dialog-actions{position:sticky;bottom:0;justify-content:flex-end;padding:12px 18px;background:#151f31;border-top:1px solid #34435c}
+#slot-fields{border:0;padding:0;margin:0;min-inline-size:0}
+#slot-fields input[type=text]{background:#0e1726;color:#e7eefb;border:1px solid #40506a;border-radius:9px;padding:10px;font-size:16px}
+.slot-actions{display:flex;align-items:center;gap:6px}
+.slot .gear{min-width:44px;min-height:44px;font-size:21px}
+</style></head><body>
 <header><div><h1>Chameleon Ultra</h1><div class="muted">iPhone · Bluefy · BLE 控制台</div></div><span class="pill" id="status">尚未連線</span></header>
 <section class="card"><div class="row"><button class="primary" id="connect" disabled>連接裝置</button><button id="disconnect" disabled>中斷連線</button><button id="refresh" disabled>重新讀取</button></div><p class="hint">首次連線請在 Bluefy 中允許藍牙，並確保其他 Chameleon App 已斷線。</p><div id="error" role="status"></div></section>
 <section class="card"><h2>裝置資訊</h2><div class="grid"><div class="metric"><small>韌體版本</small><strong id="version">—</strong></div><div class="metric"><small>Git 版本</small><strong id="git">—</strong></div><div class="metric"><small>電量</small><strong id="battery">—</strong></div><div class="metric"><small>運作模式</small><strong id="mode">—</strong></div><div class="metric"><small>目前卡槽</small><strong id="active">—</strong></div><div class="metric"><small>裝置型號</small><strong id="model">—</strong></div><div class="metric"><small>BLE 位址</small><strong id="ble">—</strong></div></div></section>
 <section class="card"><div class="row spread"><h2>8 個卡槽</h2><span class="muted">切換不會清除資料</span></div><div id="slots" class="muted">連線後顯示卡槽狀態</div></section>
-<section class="card"><h2>目前卡槽的頻率設定</h2><div class="row"><label class="switch"><input type="checkbox" id="hf" disabled>HF 13.56 MHz</label><label class="switch"><input type="checkbox" id="lf" disabled>LF 125 kHz</label></div><p class="hint warn">按下「套用 HF／LF 設定」後即時生效。重新開機後可能恢復裝置原先儲存的設定。若裝置處於讀卡模式，請先在裝置上切回模擬模式。</p><div class="row"><button id="apply" disabled>套用 HF／LF 設定</button></div></section>
 
-<section class="card">
-  <h2>目前卡槽的磁場設定</h2>
-  <label class="switch"><input type="checkbox" role="switch" id="field-reset" disabled>離開磁場後重置模擬</label>
-  <p class="hint">適用於 HF MIFARE Classic。開啟後，裝置偵測到讀卡機磁場消失時會重置模擬，供下次靠近時重新感應。部分韌體會在重新載入卡槽後才套用。</p>
-  <p class="muted" id="field-reset-status" role="status">連線後讀取裝置設定</p>
-</section>
-<section class="card">
-  <h2>目前卡槽的其他卡片設定</h2>
-  <p class="hint">可變更卡槽暱稱與模擬行為。模擬行為由裝置當前狀態套用，重啟後可能恢復原設定。Magic 模式與允許寫入的模式可能讓外部讀卡機更改模擬資料。</p>
-  <fieldset id="card-settings" disabled style="border:0;padding:0;margin:0;min-inline-size:0"></fieldset>
-</section>
+<dialog id="slot-dialog" aria-labelledby="slot-dialog-title">
+  <div class="dialog-body">
+    <h2 id="slot-dialog-title">卡槽設定</h2>
+    <fieldset id="slot-fields">
+      <div class="row">
+        <label class="switch"><input type="checkbox" id="hf">HF 13.56 MHz</label>
+        <label class="switch"><input type="checkbox" id="lf">LF 125 kHz</label>
+      </div>
+      <div class="slot">
+        <label class="switch"><input type="checkbox" role="switch" id="field-reset">離開磁場後重置模擬</label>
+      </div>
+      <p class="muted" id="field-reset-status"></p>
+      <div id="card-settings"></div>
+      <p class="hint">暱稱以外的設定在裝置重啟後可能恢復原值。離場重置可能要重新載入卡槽才生效。</p>
+    </fieldset>
+    <p class="hint warn" id="dialog-error" role="status" hidden></p>
+  </div>
+  <div class="row dialog-actions">
+    <button id="slot-cancel">取消</button>
+    <button class="primary" id="slot-save">儲存</button>
+  </div>
+</dialog>
 <section class="card"><h2>操作紀錄</h2><pre id="log">等待操作…</pre><div class="row"><button id="copylog">複製紀錄</button><button id="clearlog">清除畫面</button></div></section>
 <footer>內建 chameleon-ultra.js 0.4.7 SDK。裝置資訊、BLE 通訊與操作紀錄均留在本機。操作完成後可中斷 BLE 再測試模擬。</footer>
 <!-- SDK license
@@ -126,6 +145,8 @@ let enabled = [];
 let fieldReset = null;
 let fieldResetStatus = '連線後讀取裝置設定';
 let cardSettings = [];
+let editingSlot = null;
+const slotDialog = $('slot-dialog');
 
 const classicTypes = ['MIFARE_Mini', 'MIFARE_1024', 'MIFARE_2048', 'MIFARE_4096'];
 const ultralightTypes = ['MF0_ICU1', 'MF0_ICU2', 'MF0_UL11', 'MF0_UL21', 'NTAG_210', 'NTAG_212', 'NTAG_213', 'NTAG_215', 'NTAG_216'];
@@ -172,11 +193,12 @@ function updateControls() {
   for (const key of ['hf', 'lf']) {
     $(key).disabled = !linked || !canWrite || busy || typeof enabled[active]?.[key] !== 'boolean';
   }
-  $('apply').disabled = $('hf').disabled && $('lf').disabled;
-  $('field-reset').disabled = !linked || !canWrite || busy || fieldReset === null;
-  $('card-settings').disabled = !linked || !canWrite || busy;
+  $('field-reset').disabled = fieldReset === null;
+  $('slot-fields').disabled = busy;
+  $('slot-save').disabled = !linked || !canWrite || busy;
+  $('slot-cancel').disabled = busy;
   for (const button of $('slots').querySelectorAll('button')) {
-    button.disabled = !linked || !canWrite || busy || active === null || Number(button.dataset.slot) === active;
+    button.disabled = !linked || !canWrite || busy || active === null || (button.className !== 'gear' && Number(button.dataset.slot) === active);
   }
 }
 
@@ -192,6 +214,7 @@ async function run(action) {
   } finally {
     busy = false;
     updateControls();
+    if (editingSlot !== null && !slotDialog.open) $('slots').querySelector('.gear')?.focus();
   }
 }
 
@@ -232,15 +255,21 @@ function renderSlots() {
         await readSlots();
       }
     });
+    const actions = document.createElement('div');
+    actions.className = 'slot-actions';
+    actions.append(button);
+    if (current) {
+      const gear = document.createElement('button');
+      gear.className = 'gear';
+      gear.textContent = '⚙';
+      gear.setAttribute('aria-label', '卡槽 ' + (index + 1) + ' 設定');
+      gear.onclick = openSlotDialog;
+      actions.append(gear);
+    }
     detail.append(title, description);
-    row.append(detail, button);
+    row.append(detail, actions);
     $('slots').append(row);
   }
-  $('hf').checked = enabled[active]?.hf === true;
-  $('lf').checked = enabled[active]?.lf === true;
-  $('field-reset').checked = fieldReset === true;
-  show('field-reset-status', fieldResetStatus);
-  renderCardSettings();
   updateControls();
 }
 
@@ -319,8 +348,6 @@ function renderCardSettings() {
     const input = document.createElement(kind === 'mode' ? 'select' : 'input');
     input.id = 'card-setting-' + target.children.length;
     caption.htmlFor = input.id;
-    const button = document.createElement('button');
-    button.textContent = '套用';
     if (kind === 'mode') {
       const modes = sdk[enumName];
       for (const [key, text] of writeModes) {
@@ -352,48 +379,91 @@ function renderCardSettings() {
       caption.append(status);
     }
     input.disabled = value === null || (!canSet && !canClear);
-    button.disabled = input.disabled;
-    button.onclick = () => run(() => applyCardSetting(setting, input));
-    row.append(caption, input, button);
+    row.append(caption, input);
     target.append(row);
   }
 }
 
-async function applyCardSetting(setting, input) {
+function openSlotDialog() {
+  editingSlot = active;
+  show('slot-dialog-title', '卡槽 ' + (active + 1) + ' 設定');
+  renderDraft();
+  $('dialog-error').hidden = true;
+  slotDialog.showModal();
+}
+
+function renderDraft() {
+  $('hf').checked = enabled[active]?.hf === true;
+  $('lf').checked = enabled[active]?.lf === true;
+  $('field-reset').checked = fieldReset === true;
+  show('field-reset-status', fieldResetStatus);
+  renderCardSettings();
+}
+
+function cardChange(setting, input) {
   const { label, value, kind, freq, get, set, canSet, canClear, magic, enumName } = setting;
-  const slot = active;
-  if (!linked || !canWrite || slot === null || value === null) return;
-  if (kind === 'mode' && input.value === '') return;
+  if (input.disabled || (kind === 'mode' && input.value === '')) return null;
   const requested = kind === 'name' ? input.value.trim() : kind === 'toggle' ? input.checked : Number(input.value);
-  if (requested === value) return;
+  if (requested === value) return null;
   if (kind === 'name') {
-    if (new TextEncoder().encode(requested).length > 32 || requested.includes('\0')) throw new Error('暱稱上限為 32 個 UTF-8 位元組，且不能包含空字元。');
-    if (requested ? !canSet : !canClear) throw new Error('目前韌體不支援這項暱稱操作。');
-  } else if (!canSet) {
-    return;
-  }
-  const writable = kind === 'mode' && [sdk[enumName].NORMAL, sdk[enumName].SHADOW].includes(requested);
-  if ((magic && requested || writable) && !confirm('套用「' + label + '」可能讓外部讀卡機修改模擬資料。確定套用？')) {
-    renderCardSettings();
-    return;
-  }
-  try {
-    if (await ultra.cmdSlotGetActive() !== slot) throw new Error('目前卡槽已變更，請確認後再操作。');
-    let actual;
-    if (kind === 'name') {
-      if (requested) await ultra.cmdSlotSetFreqName(slot, freq, requested);
-      else await ultra.cmdSlotDeleteFreqName(slot, freq);
-      actual = await ultra.cmdSlotGetFreqName(slot, freq) ?? '';
-    } else {
-      await ultra[set](requested);
-      if (!linked) throw new Error('BLE 已中斷，無法確認設定。');
-      actual = await ultra[get]();
+    if (new TextEncoder().encode(requested).length > 32 || requested.includes('\0')) {
+      throw new Error(label + '上限為 32 個 UTF-8 位元組，且不能包含空字元。');
     }
-    if (actual !== requested || !linked || await ultra.cmdSlotGetActive() !== slot) throw new Error('裝置未確認「' + label + '」，請重新讀取。');
-    log('卡槽 ' + (slot + 1) + ' 已套用「' + label + '」');
-  } finally {
-    await readSlots();
+    if (requested ? !canSet : !canClear) throw new Error('目前韌體不支援這項暱稱操作。');
+    return {
+      label,
+      write: slot => requested ? ultra.cmdSlotSetFreqName(slot, freq, requested) : ultra.cmdSlotDeleteFreqName(slot, freq),
+      verify: async slot => (await ultra.cmdSlotGetFreqName(slot, freq) ?? '') === requested,
+    };
   }
+  const risky = kind === 'mode'
+    ? [sdk[enumName].NORMAL, sdk[enumName].SHADOW].includes(requested)
+    : magic && requested;
+  return { label, risky, write: () => ultra[set](requested), verify: async () => await ultra[get]() === requested };
+}
+
+async function saveSlotDialog() {
+  const slot = editingSlot;
+  const changes = cardSettings.map((setting, index) => cardChange(setting, $('card-setting-' + index))).filter(Boolean);
+  const reset = $('field-reset').checked;
+  if (fieldReset !== null && reset !== fieldReset) {
+    changes.push({
+      label: '離開磁場後重置模擬',
+      write: () => ultra.cmdMf1SetFieldOffDoReset(reset),
+      verify: async () => await ultra.cmdMf1GetFieldOffDoReset() === reset,
+    });
+  }
+  for (const key of ['hf', 'lf']) {
+    const value = $(key).checked;
+    if (typeof enabled[slot]?.[key] !== 'boolean' || value === enabled[slot][key]) continue;
+    const name = key.toUpperCase();
+    changes.push({
+      label: name + ' 模擬',
+      write: () => ultra.cmdSlotSetEnable(slot, sdk.FreqType[name], value),
+      verify: async () => (await ultra.cmdSlotGetIsEnable())[slot]?.[key] === value,
+    });
+  }
+  if (changes.some(change => change.risky) && !confirm('新設定可能讓外部讀卡機更改模擬資料。確定儲存？')) return;
+
+  let attempted = 0;
+  try {
+    for (const change of changes) {
+      if (!linked || await ultra.cmdSlotGetActive() !== slot || !linked) {
+        throw new Error('目前卡槽已變更或 BLE 已中斷。');
+      }
+      attempted++;
+      await change.write(slot);
+      if (!linked || !await change.verify(slot)) throw new Error('裝置未確認「' + change.label + '」。');
+      log('卡槽 ' + (slot + 1) + ' 已套用「' + change.label + '」');
+    }
+  } catch (error) {
+    await readSlots();
+    if (active !== slot) slotDialog.close();
+    else renderDraft();
+    throw new Error(error.message + (attempted ? ' 部分設定可能已套用，請核對裝置狀態。' : ''));
+  }
+  if (changes.length) await readSlots();
+  slotDialog.close();
 }
 
 async function readSlots() {
@@ -424,6 +494,7 @@ async function readAll() {
 }
 
 function disconnected() {
+  if (slotDialog.open) slotDialog.close();
   if (linked) log('BLE 已中斷');
   linked = false;
   canWrite = false;
@@ -461,34 +532,23 @@ $('disconnect').onclick = () => run(async () => {
 });
 
 $('refresh').onclick = () => run(readAll);
-$('field-reset').onchange = () => run(async () => {
-  if (!linked || !canWrite || fieldReset === null) return;
-  const slot = active;
-  const value = $('field-reset').checked;
-  try {
-    if (await ultra.cmdSlotGetActive() !== slot) throw new Error('目前卡槽已變更，請確認後再操作。');
-    await ultra.cmdMf1SetFieldOffDoReset(value);
-  } finally {
-    await readSlots();
-  }
-  if (active !== slot || fieldReset !== value) throw new Error('裝置未確認磁場重置設定，請重新讀取。');
-  log('卡槽 ' + (slot + 1) + ' 磁場重置已' + (value ? '啟用' : '停用'));
+$('slot-cancel').onclick = () => slotDialog.close();
+slotDialog.addEventListener('cancel', event => {
+  if (busy) event.preventDefault();
 });
-$('apply').onclick = () => run(async () => {
-  const slot = active;
-  const changes = ['hf', 'lf'].filter(key => typeof enabled[slot]?.[key] === 'boolean' && $(key).checked !== enabled[slot][key]);
-  if (!changes.length) return log('HF／LF 設定沒有變更');
-  const requested = changes.map(key => ({ key, value: $(key).checked }));
-  const description = requested.map(({ key, value }) => key.toUpperCase() + ' ' + (value ? '開' : '關')).join('、');
-  if (!confirm('套用卡槽 ' + (slot + 1) + ' 的 ' + description + '？')) return;
+slotDialog.addEventListener('close', () => {
+  editingSlot = null;
+  $('slots').querySelector('.gear')?.focus();
+});
+$('slot-save').onclick = () => run(async () => {
+  $('dialog-error').hidden = true;
   try {
-    if (await ultra.cmdSlotGetActive() !== slot) throw new Error('目前卡槽已變更，請確認重新讀取的卡槽狀態。');
-    for (const { key, value } of requested) {
-      await ultra.cmdSlotSetEnable(slot, sdk.FreqType[key.toUpperCase()], value);
-      log('卡槽 ' + (slot + 1) + ' ' + key.toUpperCase() + ' 已' + (value ? '啟用' : '停用'));
-    }
-  } finally {
-    await readSlots();
+    await saveSlotDialog();
+  } catch (error) {
+    if (!slotDialog.open) throw error;
+    $('dialog-error').hidden = false;
+    show('dialog-error', error.message);
+    log('錯誤：' + error.message);
   }
 });
 
