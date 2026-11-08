@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-5tWyEuHC9yAw8JcnOdgaW3odg4JR7VrbvBmeqckDldI='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-MVPNt5mIjhjEiUI0Smjhzqd7OceQtuZJBKzYXDBf5dU=' 'sha256-B31Nq5JiLBfipG7m5HUkKeqb6WMQTrpdy7rPxjfS8JU='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}
 #slot-dialog{width:min(94vw,520px);max-height:85vh;max-height:85dvh;padding:0;border:1px solid #40506a;border-radius:17px;background:#151f31;color:#e7eefb;overflow:auto}
 #slot-dialog::backdrop{background:#050912b8}
@@ -8,6 +8,21 @@
 #slot-fields input[type=text]{background:#0e1726;color:#e7eefb;border:1px solid #40506a;border-radius:9px;padding:10px;font-size:16px}
 .slot-actions{display:flex;align-items:center;gap:6px}
 .slot .gear{min-width:44px;min-height:44px;font-size:21px}
+#compare-options{border:0;padding:0;margin:0 0 12px;min-inline-size:0}
+#compare-options label{display:block;font-size:13px;line-height:1.6}
+#compare-options input,#compare-options textarea{width:100%;background:#0e1726;color:#e7eefb;border:1px solid #40506a;border-radius:8px;padding:10px;font-size:16px;box-sizing:border-box}
+#compare-options select{width:100%;margin-top:6px}
+#compare-options details{margin-top:12px}
+#compare-meta{overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;font-size:12px}
+.compare-table th,.compare-table td{padding:9px 5px;text-align:left;border-bottom:1px solid #34435c;overflow-wrap:anywhere;min-width:55px}
+.compare-sector{margin:12px 0;border:1px solid #34435c;border-radius:10px;padding:10px}
+.compare-sector summary{cursor:pointer}
+.compare-block{padding:10px 0;border-bottom:1px solid #34435c;font-size:12px}
+.compare-byte{display:inline-block;padding:3px;min-width:21px;text-align:center}
+.compare-byte.different,.compare-different{background:#62313b;color:#ffd0d6}
+.compare-byte.unknown{color:#97a6bf}
+.compare-block code{display:block;white-space:normal;overflow-wrap:anywhere;margin:5px 0}
 </style></head><body>
 <header><div><h1>Chameleon Ultra</h1><div class="muted">iPhone · Bluefy · BLE 控制台<br>卡槽每 0.5 秒更新 · 電量每 30 秒更新</div></div><span class="pill" id="status">尚未連線</span></header>
 <section class="card"><div class="row"><button class="primary" id="connect" disabled>連接裝置</button><button id="disconnect" disabled>中斷連線</button><button id="refresh" disabled>重新讀取</button></div><p class="hint">首次連線請在 Bluefy 中允許藍牙，並確保其他 Chameleon App 已斷線。</p><div id="error" role="status"></div></section>
@@ -20,6 +35,46 @@
   <p id="scan-status" class="hint" role="status">連線後可掃描</p>
   <div id="scan-results"></div>
   <p class="muted">類型判斷依據卡片回應。相容卡或模擬卡可能回傳相同資訊，精確晶片型號與真偽仍可能無法確認。</p>
+</section>
+<section class="card">
+  <h2>IC 卡詳細比對 A／B</h2>
+  <p class="hint">請先讀取原卡或可用卡為 A，再換上待比對卡讀取為 B。一次放一張卡並保持貼近。資料與金鑰留在這個分頁，重新整理即清除。</p>
+  <fieldset id="compare-options">
+    <label for="compare-size">讀取範圍</label>
+    <select id="compare-size">
+      <option value="info">識別資訊與讀取順序</option>
+      <option value="20">MIFARE Classic Mini · 5 扇區（320 B）</option>
+      <option value="64" selected>MIFARE Classic 1K · 16 扇區</option>
+      <option value="128">MIFARE Classic 2K 相容 · 32 扇區</option>
+      <option value="256">MIFARE Classic 4K · 40 扇區</option>
+    </select>
+    <div class="grid" style="margin-top:12px">
+      <label for="compare-key-a">共用 Key A<input id="compare-key-a" type="password" autocomplete="off" spellcheck="false" maxlength="12" placeholder="12 位十六進位，可留空"></label>
+      <label for="compare-key-b">共用 Key B<input id="compare-key-b" type="password" autocomplete="off" spellcheck="false" maxlength="12" placeholder="12 位十六進位，可留空"></label>
+    </div>
+    <details><summary>每個扇區使用不同金鑰</summary>
+      <label for="compare-sector-keys">每行填入 扇區,KeyA,KeyB。扇區從 0 開始；空欄位使用上方共用金鑰，「-」表示不使用該金鑰。</label>
+      <textarea id="compare-sector-keys" autocomplete="off" spellcheck="false" rows="4" placeholder="0,你的12位KeyA,你的12位KeyB"></textarea>
+    </details>
+    <p class="hint">只使用你填入的已知金鑰。Key A 無法正常讀回；Key B 依存取條件可能被隱藏，會以 ?? 表示。讀不到的區塊會保留狀態，無法據此判定整張卡完全相同。讀取範圍請依已知容量選擇。</p>
+  </fieldset>
+  <div class="row">
+    <button id="compare-a" disabled>讀取 A 卡</button><button id="compare-b" disabled>讀取 B 卡</button>
+    <button id="compare-stop" disabled>停止讀取</button><button id="compare-clear">清除比對與金鑰</button>
+  </div>
+  <p id="compare-progress" class="hint" role="status">連線後可讀取。掃描期間會暫停模擬與背景更新。</p>
+  <div class="grid"><p id="compare-a-summary">A 卡尚未讀取</p><p id="compare-b-summary">B 卡尚未讀取</p></div>
+  <p id="compare-summary" class="hint" role="status">完成 A／B 讀取後自動比對</p>
+  <div id="compare-meta"></div>
+  <label class="switch"><input id="compare-only-differences" type="checkbox" checked>區塊只顯示差異與未確認項目</label>
+  <p class="muted">紅色表示已讀資料不同；?? 表示未取得或受保護。扇區尾端的金鑰隱藏位元組不會當成相同資料。</p>
+  <div id="compare-blocks"></div>
+  <details><summary>讀取順序與回應紀錄</summary>
+    <p class="hint">這裡記錄本網站的 SDK 操作、成功／失敗與整體耗時。耗時包含 BLE 與系統延遲，不能用來判定晶片的射頻時序。此紀錄不含門禁讀卡機的無線對話或完整原始封包。</p>
+    <pre id="compare-trace-a">A 卡尚無紀錄</pre><pre id="compare-trace-b">B 卡尚無紀錄</pre>
+    <p id="compare-order-summary" class="hint">完成 A／B 讀取後比較執行順序</p>
+    <div id="compare-order" style="overflow-x:auto"></div>
+  </details>
 </section>
 <section class="card"><div class="row spread"><h2>8 個卡槽</h2><span class="muted">切換不會清除資料</span></div><div id="slots" class="muted">連線後顯示卡槽狀態</div></section>
 
@@ -253,6 +308,7 @@ function updateControls() {
   $('disconnect').disabled = $('refresh').disabled = !linked || busy;
   $('scan-card').disabled = !linked || !canWrite || busy || slotDialog.open;
   $('clear-scan').disabled = busy;
+  if (typeof updateComparisonControls === 'function') updateComparisonControls();
   for (const key of ['hf', 'lf']) {
     $(key).disabled = !linked || !canWrite || busy || typeof enabled[active]?.[key] !== 'boolean';
   }
@@ -792,5 +848,372 @@ if (!navigator.bluetooth) {
     updateControls();
   }).catch(showError);
 }
+</script>
+<script>const comparisonSnapshots = { A: null, B: null };
+let comparisonRunning = false;
+let comparisonStopRequested = false;
+
+function updateComparisonControls() {
+  for (const side of ['a', 'b']) $('compare-' + side).disabled = busy || !linked || !canWrite || slotDialog.open;
+  $('compare-options').disabled = busy;
+  $('compare-stop').disabled = !comparisonRunning || comparisonStopRequested;
+  $('compare-clear').disabled = busy;
+}
+
+function comparisonLayout(blockCount) {
+  const sectorCount = blockCount === 256 ? 40 : blockCount / 4;
+  return Array.from({ length: sectorCount }, (_,sector) => {
+    const start = sector < 32 ? sector * 4 : 128 + (sector - 32) * 16;
+    const length = sector < 32 ? 4 : 16;
+    return { sector, start, length };
+  });
+}
+
+function comparisonKeys(blockCount) {
+  const parse = value => {
+    const key = value.trim().toUpperCase();
+    if (key && !/^[0-9A-F]{12}$/.test(key)) throw new Error('金鑰必須是 12 位十六進位字元。');
+    return key || null;
+  };
+  const shared = { A: parse($('compare-key-a').value), B: parse($('compare-key-b').value) };
+  const sectors = comparisonLayout(blockCount).map(() => ({ ...shared }));
+  const supplied = new Set();
+  const lines = $('compare-sector-keys').value.split(/\r?\n/);
+  for (let index = 0; index < lines.length; index++) {
+    if (!lines[index].trim()) continue;
+    const cells = lines[index].split(',').map(cell => cell.trim());
+    const sector = Number(cells[0]);
+    if (cells.length !== 3 || !/^\d+$/.test(cells[0]) || sector < 0 || sector >= sectors.length || supplied.has(sector)) {
+      throw new Error('扇區金鑰第 ' + (index + 1) + ' 行格式、範圍或重複扇區有誤。');
+    }
+    supplied.add(sector);
+    for (const [offset, type] of [[1, 'A'], [2, 'B']]) {
+      if (cells[offset] === '-') sectors[sector][type] = null;
+      else if (cells[offset]) sectors[sector][type] = parse(cells[offset]);
+    }
+  }
+  return sectors;
+}
+
+function comparisonIdentity(tag) {
+  return ['uid', 'atqa', 'sak', 'ats'].map(key => cardHex(tag[key])).join('|');
+}
+
+function comparisonStatus(error) {
+  const known = { 1: '未偵測到卡片', 2: '卡片回應錯誤／存取被拒', 6: '驗證失敗', 102: '裝置模式錯誤', 103: '韌體不支援指令' };
+  return known[error?.status] || (Number.isInteger(error?.status) ? '裝置狀態 ' + error.status : '連線、逾時或指令失敗');
+}
+
+async function comparisonStep(snapshot, action, operation) {
+  if (!linked || !ultra.isConnected()) throw new Error('BLE 已中斷，無法繼續讀取。');
+  const started = Date.now();
+  const entry = { action, elapsed: 0, result: '處理中' };
+  snapshot.trace.push(entry);
+  try {
+    const value = await operation();
+    entry.result = '成功';
+    return value;
+  } catch (error) {
+    entry.result = comparisonStatus(error);
+    throw error;
+  } finally {
+    entry.elapsed = Date.now() - started;
+  }
+}
+
+function comparisonCheck() {
+  if (!linked || !ultra.isConnected()) throw new Error('BLE 已中斷，保留已讀取的部分。');
+  if (comparisonStopRequested) throw new Error('已停止，保留已讀取的部分。');
+}
+
+async function comparisonCheckCard(snapshot, label) {
+  comparisonCheck();
+  const tags = await comparisonStep(snapshot, label, () => ultra.cmdHf14aScan());
+  comparisonCheck();
+  if (tags.length !== 1 || comparisonIdentity(tags[0]) !== snapshot.identity) {
+    throw new Error('偵測到卡片離開、更換或多張卡，已停止這次讀取。');
+  }
+}
+
+function comparisonMaskedBytes(bytes, isTrailer) {
+  const data = Array.from(bytes);
+  if (!isTrailer) return data;
+  const [b6, b7, b8] = [bytes[6], bytes[7], bytes[8]];
+  const accessValid = (((b6 & 15) ^ (b7 >> 4)) === 15) &&
+    (((b6 >> 4) ^ (b8 & 15)) === 15) && (((b7 & 15) ^ (b8 >> 4)) === 15);
+  const condition = (((b7 >> 7) & 1) << 2) | (((b8 >> 3) & 1) << 1) | ((b8 >> 7) & 1);
+  // Key A is never readable. Key B is data only for trailer conditions 000,001,010.
+  for (let index = 0; index < 6; index++) data[index] = null;
+  if (!accessValid || ![0, 1, 2].includes(condition)) {
+    for (let index = 10; index < 16; index++) data[index] = null;
+  }
+  return data;
+}
+
+async function readComparisonBlocks(snapshot, keys) {
+  for (const group of comparisonLayout(snapshot.blockCount)) {
+    const choices = ['A', 'B'].filter(type => keys[group.sector][type]);
+    for (let offset = 0; offset < group.length; offset++) {
+      const block = group.start + offset;
+      const item = snapshot.blocks[block];
+      comparisonCheck();
+      if (!choices.length) {
+        item.status = '未提供扇區金鑰';
+        continue;
+      }
+      show('compare-progress', '讀取 ' + snapshot.side + ' 卡 · 扇區 ' + group.sector + '／區塊 ' + block + '，請保持同一張卡貼近。');
+      await comparisonCheckCard(snapshot, '區塊 ' + block + ' 讀取前確認卡片');
+      for (const type of choices) {
+        comparisonCheck();
+        try {
+          const bytes = await comparisonStep(snapshot, '讀取區塊 ' + block + '，使用 Key ' + type, () => ultra.cmdMf1ReadBlock({
+            block, keyType: sdk.Mf1KeyType['KEY_' + type], key: sdk.Buffer.from(keys[group.sector][type], 'hex'),
+          }));
+          if (bytes?.length !== 16) throw new Error('區塊回應長度異常。');
+          await comparisonCheckCard(snapshot, '區塊 ' + block + ' 讀取後確認卡片');
+          item.data = comparisonMaskedBytes(bytes, item.trailer);
+          item.status = '已讀取（Key ' + type + '）';
+          break;
+        } catch (error) {
+          if (![2, 6].includes(error.status)) throw error;
+          item.status = comparisonStatus(error);
+        }
+      }
+    }
+  }
+}
+
+async function captureComparison(side) {
+  const blockCount = $('compare-size').value === 'info' ? 0 : Number($('compare-size').value);
+  if (![0, 20, 64, 128, 256].includes(blockCount)) throw new Error('讀取範圍有誤。');
+  const keys = blockCount ? comparisonKeys(blockCount) : [];
+  if (comparisonSnapshots[side] && !confirm('以新讀取結果取代 ' + side + ' 卡的比對資料？')) return;
+  const snapshot = { side, blockCount, trace: [], blocks: [], meta: null, identity: null, finished: false, note: '準備讀取', error: null, restore: null };
+  for (const group of comparisonLayout(blockCount)) {
+    for (let offset = 0; offset < group.length; offset++) {
+      snapshot.blocks.push({ block: group.start + offset, sector: group.sector, trailer: offset === group.length - 1, data: null, status: '尚未讀取' });
+    }
+  }
+  comparisonSnapshots[side] = snapshot;
+  comparisonRunning = true;
+  comparisonStopRequested = false;
+  updateComparisonControls();
+  renderComparison();
+  let previousMode = null;
+  let changeAttempted = false;
+  try {
+    comparisonCheck();
+    if (await ultra.cmdGetDeviceModel() !== sdk.DeviceModel.ULTRA) throw new Error('詳細讀取需要 Chameleon Ultra。');
+    const required = blockCount ? [sdk.Cmd.HF14A_SCAN, sdk.Cmd.MF1_READ_ONE_BLOCK] : [sdk.Cmd.HF14A_SCAN];
+    for (const command of required) {
+      comparisonCheck();
+      if (!await ultra.isCmdSupported(command)) throw new Error('韌體未回報支援所需的讀取指令。');
+    }
+    comparisonCheck();
+    previousMode = await comparisonStep(snapshot, '查詢原模式', () => ultra.cmdGetDeviceMode());
+    if (![sdk.DeviceMode.TAG, sdk.DeviceMode.READER].includes(previousMode)) throw new Error('無法確認原模式。');
+    changeAttempted = previousMode !== sdk.DeviceMode.READER;
+    if (changeAttempted) await comparisonStep(snapshot, '切換讀卡模式', () => ultra.cmdChangeDeviceMode(sdk.DeviceMode.READER));
+    show('mode', '讀卡（READER）');
+    comparisonCheck();
+    const tags = await comparisonStep(snapshot, '掃描 HF 卡片，取得 UID／ATQA／SAK／ATS', () => ultra.cmdHf14aScan());
+    comparisonCheck();
+    if (tags.length !== 1) throw new Error('請只放一張卡片，並保持貼近裝置。');
+    const tag = tags[0];
+    snapshot.identity = comparisonIdentity(tag);
+    snapshot.meta = {
+      UID: cardHex(tag.uid), 'UID 長度': String(tag.uid.length), 'ATQA（原始順序）': cardHex(tag.atqa),
+      SAK: cardHex(tag.sak), ATS: cardHex(tag.ats), '類型推測': identifyCard(tag), GET_VERSION: null,
+    };
+    if (!blockCount && tag.sak[0] === 0 && tag.atqa[0] === 0x44 && tag.atqa[1] === 0 && await ultra.isCmdSupported(sdk.Cmd.HF14A_RAW)) {
+      try {
+        const version = await comparisonStep(snapshot, 'GET_VERSION 版本查詢', () => ultra.mfuGetVersion({ timeout: 500 }));
+        await comparisonCheckCard(snapshot, '版本查詢後確認卡片');
+        if (version.length === 8) {
+          snapshot.meta.GET_VERSION = cardHex(version);
+          snapshot.meta['類型推測'] = identifyCard(tag, version);
+        }
+      } catch {
+        comparisonCheck();
+      }
+    }
+    if (blockCount) {
+      const validSaks = blockCount === 20 ? [0x09, 0x89] : blockCount === 256 ? [0x18, 0x98] : [0x08, 0x88];
+      if (!validSaks.includes(tag.sak[0])) throw new Error('掃描識別與所選 MIFARE Classic 範圍不符，已保留識別資訊。');
+      await readComparisonBlocks(snapshot, keys);
+    }
+    snapshot.finished = true;
+    snapshot.note = '讀取流程完成';
+  } catch (error) {
+    snapshot.error = error.status === undefined ? error.message : comparisonStatus(error);
+    snapshot.note = '讀取未完成';
+  } finally {
+    if (changeAttempted) {
+      try {
+        if (!linked || !ultra.isConnected()) throw new Error('BLE 已中斷');
+        await comparisonStep(snapshot, '恢復原模式', () => ultra.cmdChangeDeviceMode(previousMode));
+        const restored = await comparisonStep(snapshot, '確認原模式已恢復', () => ultra.cmdGetDeviceMode());
+        if (!linked || restored !== previousMode) throw new Error('模式未確認');
+        snapshot.restore = '已恢復原模式';
+        show('mode', previousMode === sdk.DeviceMode.TAG ? '模擬卡（TAG）' : '讀卡（READER）');
+      } catch {
+        snapshot.restore = '未能確認恢復原模式，請重新連線檢查';
+        show('mode', '模式待確認');
+      }
+    } else {
+      snapshot.restore = previousMode === sdk.DeviceMode.READER ? '維持原讀卡模式' : '未切換裝置模式';
+    }
+    comparisonRunning = false;
+    comparisonStopRequested = false;
+    renderComparison();
+    show('compare-progress', side + ' 卡 · ' + snapshot.note + (snapshot.error ? ' · ' + snapshot.error : '') + ' · ' + snapshot.restore);
+    updateComparisonControls();
+    log(side + ' 卡詳細比對讀取結束');
+  }
+}
+
+function comparisonBlockResult(a, b) {
+  let comparable = 0;
+  let different = 0;
+  for (let index = 0; index < 16; index++) {
+    if (!Number.isInteger(a?.data?.[index]) || !Number.isInteger(b?.data?.[index])) continue;
+    comparable++;
+    if (a.data[index] !== b.data[index]) different++;
+  }
+  return { comparable, different, unknown: 16 - comparable };
+}
+
+function comparisonElement(tag, text, className) {
+  const element = document.createElement(tag);
+  if (text !== undefined) element.textContent = text;
+  if (className) element.className = className;
+  return element;
+}
+
+function renderComparison() {
+  for (const side of ['A', 'B']) {
+    const snapshot = comparisonSnapshots[side];
+    const id = side.toLowerCase();
+    if (!snapshot) {
+      show('compare-' + id + '-summary', side + ' 卡尚未讀取');
+      show('compare-trace-' + id, side + ' 卡尚無紀錄');
+      continue;
+    }
+    const readCount = snapshot.blocks.filter(block => block.data).length;
+    show('compare-' + id + '-summary', side + ' 卡 · ' + snapshot.note + ' · 已讀區塊 ' + readCount + '/' + snapshot.blockCount + (snapshot.error ? ' · ' + snapshot.error : ''));
+    show('compare-trace-' + id, snapshot.trace.map((entry,index) => (index + 1) + '. ' + entry.action + ' → ' + entry.result + '（' + entry.elapsed + ' ms）').join('\n') || '尚無紀錄');
+  }
+  const a = comparisonSnapshots.A;
+  const b = comparisonSnapshots.B;
+  $('compare-order').replaceChildren();
+  show('compare-order-summary', '完成 A／B 讀取後比較執行順序');
+  $('compare-meta').replaceChildren();
+  $('compare-blocks').replaceChildren();
+  if (!a || !b) {
+    show('compare-summary', '完成 A／B 讀取後自動比對');
+    return;
+  }
+  const table = comparisonElement('table', undefined, 'compare-table');
+  const header = comparisonElement('tr');
+  for (const title of ['項目', 'A 卡', 'B 卡', '比對']) header.append(comparisonElement('th', title));
+  table.append(header);
+  for (const key of ['UID', 'UID 長度', 'ATQA（原始順序）', 'SAK', 'ATS', 'GET_VERSION', '類型推測']) {
+    const av = a.meta?.[key];
+    const bv = b.meta?.[key];
+    const result = av == null || bv == null ? '未確認' : av === bv ? '相同' : '不同';
+    const row = comparisonElement('tr');
+    for (const value of [key, av ?? '未取得', bv ?? '未取得', result]) row.append(comparisonElement('td', value));
+    if (result === '不同') row.className = 'compare-different';
+    table.append(row);
+  }
+  $('compare-meta').append(table);
+  const order = comparisonElement('table', undefined, 'compare-table');
+  const orderHeader = comparisonElement('tr');
+  for (const title of ['順序', 'A 卡操作與回應', 'B 卡操作與回應']) orderHeader.append(comparisonElement('th', title));
+  order.append(orderHeader);
+  let orderDifferences = 0;
+  const stepCount = Math.max(a.trace.length, b.trace.length);
+  for (let index = 0; index < stepCount; index++) {
+    const av = a.trace[index];
+    const bv = b.trace[index];
+    const row = comparisonElement('tr');
+    row.append(comparisonElement('td', String(index + 1)));
+    for (const entry of [av, bv]) {
+      row.append(comparisonElement('td', entry ? entry.action + ' → ' + entry.result + '（' + entry.elapsed + ' ms）' : '無此步驟'));
+    }
+    if (av?.action !== bv?.action || av?.result !== bv?.result) {
+      orderDifferences++;
+      row.className = 'compare-different';
+    }
+    order.append(row);
+  }
+  $('compare-order').append(order);
+  show('compare-order-summary', 'A／B 步驟數 ' + a.trace.length + '/' + b.trace.length + ' · 按序對齊後操作或結果不同 ' + orderDifferences + ' 列。毫秒差異只供參考。');
+  const blockCount = Math.max(a.blockCount, b.blockCount);
+  let differentBlocks = 0;
+  let comparableBytes = 0;
+  let differentBytes = 0;
+  let unknownBytes = 0;
+  let sectorContainer;
+  let currentSector = -1;
+  for (let block = 0; block < blockCount; block++) {
+    const av = a.blocks[block];
+    const bv = b.blocks[block];
+    const result = comparisonBlockResult(av, bv);
+    if (result.different) differentBlocks++;
+    comparableBytes += result.comparable;
+    differentBytes += result.different;
+    unknownBytes += result.unknown;
+    if ($('compare-only-differences').checked && !result.different && !result.unknown) continue;
+    const sector = (av ?? bv).sector;
+    if (currentSector !== sector) {
+      currentSector = sector;
+      sectorContainer = comparisonElement('details', undefined, 'compare-sector');
+      sectorContainer.append(comparisonElement('summary', '扇區 ' + sector));
+      $('compare-blocks').append(sectorContainer);
+    }
+    const section = comparisonElement('div', undefined, 'compare-block');
+    section.append(comparisonElement('b', '區塊 ' + block + ((av ?? bv).trailer ? ' · 扇區尾端' : '') + ' · 差異 ' + result.different + ' B／未確認 ' + result.unknown + ' B'));
+    for (const [label, value, other] of [['A', av, bv], ['B', bv, av]]) {
+      const line = comparisonElement('code', label + ' ');
+      for (let index = 0; index < 16; index++) {
+        const byte = value?.data?.[index];
+        const otherByte = other?.data?.[index];
+        const known = Number.isInteger(byte);
+        const mismatch = known && Number.isInteger(otherByte) && byte !== otherByte;
+        line.append(comparisonElement('span', known ? byte.toString(16).padStart(2, '0').toUpperCase() : '??', 'compare-byte' + (mismatch ? ' different' : !known ? ' unknown' : '')));
+      }
+      section.append(line, comparisonElement('small', label + ' · ' + (value?.status ?? '未讀取此區塊')));
+    }
+    sectorContainer.append(section);
+  }
+  const prefixes = [
+    '兩卡範圍 ' + a.blockCount + '/' + b.blockCount + ' 區塊',
+    '可比較 ' + comparableBytes + ' 位元組',
+    '不同 ' + differentBytes + ' 位元組（' + differentBlocks + ' 區塊）',
+    '未確認 ' + unknownBytes + ' 位元組',
+  ];
+  if (blockCount) prefixes.push(differentBytes ? '已讀資料有差異' : comparableBytes ? '已讀可比較部分相同；受保護或未讀部分仍未確認' : '尚無可比較的區塊資料');
+  else prefixes.push('本次僅比較識別資訊');
+  show('compare-summary', prefixes.join(' · '));
+}
+
+for (const side of ['A', 'B']) {
+  $('compare-' + side.toLowerCase()).onclick = () => run(() => captureComparison(side));
+}
+$('compare-stop').onclick = () => {
+  comparisonStopRequested = true;
+  updateComparisonControls();
+  show('compare-progress', '正在停止，等待目前指令結束並恢復原模式…');
+};
+$('compare-clear').onclick = () => {
+  if (busy) return;
+  comparisonSnapshots.A = comparisonSnapshots.B = null;
+  for (const id of ['compare-key-a', 'compare-key-b', 'compare-sector-keys']) $(id).value = '';
+  show('compare-progress', '已清除比對結果與金鑰');
+  renderComparison();
+};
+$('compare-only-differences').onchange = renderComparison;
+updateComparisonControls();
 </script>
 </body></html>
