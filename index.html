@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-MVPNt5mIjhjEiUI0Smjhzqd7OceQtuZJBKzYXDBf5dU=' 'sha256-B31Nq5JiLBfipG7m5HUkKeqb6WMQTrpdy7rPxjfS8JU='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-MVPNt5mIjhjEiUI0Smjhzqd7OceQtuZJBKzYXDBf5dU=' 'sha256-9XJ3IkLUWPQJ63LQf2ocv0aIlHbSZqqTSvo/4AJOhNg='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}
 #slot-dialog{width:min(94vw,520px);max-height:85vh;max-height:85dvh;padding:0;border:1px solid #40506a;border-radius:17px;background:#151f31;color:#e7eefb;overflow:auto}
 #slot-dialog::backdrop{background:#050912b8}
@@ -52,11 +52,10 @@
       <label for="compare-key-a">共用 Key A<input id="compare-key-a" type="password" autocomplete="off" spellcheck="false" maxlength="12" placeholder="12 位十六進位，可留空"></label>
       <label for="compare-key-b">共用 Key B<input id="compare-key-b" type="password" autocomplete="off" spellcheck="false" maxlength="12" placeholder="12 位十六進位，可留空"></label>
     </div>
-    <details><summary>每個扇區使用不同金鑰</summary>
-      <label for="compare-sector-keys">每行填入 扇區,KeyA,KeyB。扇區從 0 開始；空欄位使用上方共用金鑰，「-」表示不使用該金鑰。</label>
-      <textarea id="compare-sector-keys" autocomplete="off" spellcheck="false" rows="4" placeholder="0,你的12位KeyA,你的12位KeyB"></textarea>
-    </details>
-    <p class="hint">只使用你填入的已知金鑰。Key A 無法正常讀回；Key B 依存取條件可能被隱藏，會以 ?? 表示。讀不到的區塊會保留狀態，無法據此判定整張卡完全相同。讀取範圍請依已知容量選擇。</p>
+    <label for="compare-sector-keys" style="margin-top:12px">候選金鑰清單 · 每行一組 12 位十六進位金鑰</label>
+    <textarea id="compare-sector-keys" autocomplete="off" spellcheck="false" rows="5" placeholder="FFFFFFFFFFFF&#10;A0A1A2A3A4A5"></textarea>
+    <p class="muted" id="compare-key-count">尚未加入候選金鑰</p>
+    <p class="hint">每個扇區會優先驗證上方共用金鑰，再按清單順序嘗試 Key A／Key B。重複項目自動合併，已成功的金鑰會用於該扇區的後續讀取。未命中或讀不到的資料會保留狀態。Key A 與受保護的 Key B 仍以 ?? 表示。</p>
   </fieldset>
   <div class="row">
     <button id="compare-a" disabled>讀取 A 卡</button><button id="compare-b" disabled>讀取 B 卡</button>
@@ -869,6 +868,16 @@ function comparisonLayout(blockCount) {
   });
 }
 
+function comparisonCandidateKeys() {
+  const entries = $('compare-sector-keys').value.trim().split(/[\s,;]+/).filter(Boolean);
+  const unique = new Set();
+  for (let index = 0; index < entries.length; index++) {
+    if (!/^[0-9A-Fa-f]{12}$/.test(entries[index])) throw new Error('候選清單第 ' + (index + 1) + ' 組必須是 12 位十六進位金鑰。');
+    unique.add(entries[index].toUpperCase());
+  }
+  return [...unique];
+}
+
 function comparisonKeys(blockCount) {
   const parse = value => {
     const key = value.trim().toUpperCase();
@@ -876,23 +885,8 @@ function comparisonKeys(blockCount) {
     return key || null;
   };
   const shared = { A: parse($('compare-key-a').value), B: parse($('compare-key-b').value) };
-  const sectors = comparisonLayout(blockCount).map(() => ({ ...shared }));
-  const supplied = new Set();
-  const lines = $('compare-sector-keys').value.split(/\r?\n/);
-  for (let index = 0; index < lines.length; index++) {
-    if (!lines[index].trim()) continue;
-    const cells = lines[index].split(',').map(cell => cell.trim());
-    const sector = Number(cells[0]);
-    if (cells.length !== 3 || !/^\d+$/.test(cells[0]) || sector < 0 || sector >= sectors.length || supplied.has(sector)) {
-      throw new Error('扇區金鑰第 ' + (index + 1) + ' 行格式、範圍或重複扇區有誤。');
-    }
-    supplied.add(sector);
-    for (const [offset, type] of [[1, 'A'], [2, 'B']]) {
-      if (cells[offset] === '-') sectors[sector][type] = null;
-      else if (cells[offset]) sectors[sector][type] = parse(cells[offset]);
-    }
-  }
-  return sectors;
+  const candidates = comparisonCandidateKeys();
+  return comparisonLayout(blockCount).map(() => ({ ...shared, candidates }));
 }
 
 function comparisonIdentity(tag) {
@@ -952,13 +946,15 @@ function comparisonMaskedBytes(bytes, isTrailer) {
 
 async function readComparisonBlocks(snapshot, keys) {
   for (const group of comparisonLayout(snapshot.blockCount)) {
-    const choices = ['A', 'B'].filter(type => keys[group.sector][type]);
+    let sectorKeys = keys[group.sector];
+    if (sectorKeys.candidates.length) sectorKeys = await comparisonFindSectorKeys(snapshot, group, sectorKeys);
+    const choices = ['A', 'B'].filter(type => sectorKeys[type]);
     for (let offset = 0; offset < group.length; offset++) {
       const block = group.start + offset;
       const item = snapshot.blocks[block];
       comparisonCheck();
       if (!choices.length) {
-        item.status = '未提供扇區金鑰';
+        item.status = sectorKeys.candidates.length ? '清單金鑰未驗證成功' : '未提供扇區金鑰';
         continue;
       }
       show('compare-progress', '讀取 ' + snapshot.side + ' 卡 · 扇區 ' + group.sector + '／區塊 ' + block + '，請保持同一張卡貼近。');
@@ -967,7 +963,7 @@ async function readComparisonBlocks(snapshot, keys) {
         comparisonCheck();
         try {
           const bytes = await comparisonStep(snapshot, '讀取區塊 ' + block + '，使用 Key ' + type, () => ultra.cmdMf1ReadBlock({
-            block, keyType: sdk.Mf1KeyType['KEY_' + type], key: sdk.Buffer.from(keys[group.sector][type], 'hex'),
+            block, keyType: sdk.Mf1KeyType['KEY_' + type], key: sdk.Buffer.from(sectorKeys[type], 'hex'),
           }));
           if (bytes?.length !== 16) throw new Error('區塊回應長度異常。');
           await comparisonCheckCard(snapshot, '區塊 ' + block + ' 讀取後確認卡片');
@@ -981,6 +977,39 @@ async function readComparisonBlocks(snapshot, keys) {
       }
     }
   }
+}
+
+async function comparisonFindSectorKeys(snapshot, group, supplied) {
+  const found = { A: null, B: null, candidates: supplied.candidates };
+  await comparisonCheckCard(snapshot, '扇區 ' + group.sector + ' 金鑰驗證前確認卡片');
+  for (const type of ['A', 'B']) {
+    const candidates = [...new Set([supplied[type], ...supplied.candidates].filter(Boolean))];
+    let attempts = 0;
+    let matched = false;
+    await comparisonStep(snapshot, '扇區 ' + group.sector + ' Key ' + type + ' 清單驗證', async () => {
+      for (const key of candidates) {
+        comparisonCheck();
+        show('compare-progress', '讀取 ' + snapshot.side + ' 卡 · 扇區 ' + group.sector + '／Key ' + type + ' · 嘗試 ' + (attempts + 1) + '/' + candidates.length + ' 組');
+        if (attempts && attempts % 10 === 0) {
+          await comparisonCheckCard(snapshot, '扇區 ' + group.sector + ' 嘗試期間確認卡片');
+        }
+        const accepted = await ultra.cmdMf1CheckBlockKey({
+          block: group.start, keyType: sdk.Mf1KeyType['KEY_' + type], key: sdk.Buffer.from(key, 'hex'),
+        });
+        attempts++;
+        comparisonCheck();
+        if (accepted) {
+          found[type] = key;
+          matched = true;
+          break;
+        }
+      }
+    });
+    const entry = snapshot.trace.findLast(item => item.action === '扇區 ' + group.sector + ' Key ' + type + ' 清單驗證');
+    entry.result = matched ? '第 ' + attempts + ' 組驗證成功' : '已嘗試 ' + attempts + ' 組，均未命中';
+    await comparisonCheckCard(snapshot, '扇區 ' + group.sector + ' Key ' + type + ' 驗證後確認卡片');
+  }
+  return found;
 }
 
 async function captureComparison(side) {
@@ -1005,6 +1034,7 @@ async function captureComparison(side) {
     comparisonCheck();
     if (await ultra.cmdGetDeviceModel() !== sdk.DeviceModel.ULTRA) throw new Error('詳細讀取需要 Chameleon Ultra。');
     const required = blockCount ? [sdk.Cmd.HF14A_SCAN, sdk.Cmd.MF1_READ_ONE_BLOCK] : [sdk.Cmd.HF14A_SCAN];
+    if (keys.some(sector => sector.candidates.length)) required.push(sdk.Cmd.MF1_AUTH_ONE_KEY_BLOCK);
     for (const command of required) {
       comparisonCheck();
       if (!await ultra.isCmdSupported(command)) throw new Error('韌體未回報支援所需的讀取指令。');
@@ -1210,10 +1240,19 @@ $('compare-clear').onclick = () => {
   if (busy) return;
   comparisonSnapshots.A = comparisonSnapshots.B = null;
   for (const id of ['compare-key-a', 'compare-key-b', 'compare-sector-keys']) $(id).value = '';
+  show('compare-key-count', '尚未加入候選金鑰');
   show('compare-progress', '已清除比對結果與金鑰');
   renderComparison();
 };
 $('compare-only-differences').onchange = renderComparison;
+$('compare-sector-keys').oninput = () => {
+  try {
+    const count = comparisonCandidateKeys().length;
+    show('compare-key-count', count ? '已加入 ' + count + ' 組候選金鑰（已合併重複項目）' : '尚未加入候選金鑰');
+  } catch (error) {
+    show('compare-key-count', error.message);
+  }
+};
 updateComparisonControls();
 </script>
 </body></html>
