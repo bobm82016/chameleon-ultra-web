@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-Bgq0V9kUpQkNGGFIJYCdowEqvj9j84KILOg/5nPhbAw='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-5tWyEuHC9yAw8JcnOdgaW3odg4JR7VrbvBmeqckDldI='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE 控制台</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}
 #slot-dialog{width:min(94vw,520px);max-height:85vh;max-height:85dvh;padding:0;border:1px solid #40506a;border-radius:17px;background:#151f31;color:#e7eefb;overflow:auto}
 #slot-dialog::backdrop{background:#050912b8}
@@ -12,6 +12,15 @@
 <header><div><h1>Chameleon Ultra</h1><div class="muted">iPhone · Bluefy · BLE 控制台<br>卡槽每 0.5 秒更新 · 電量每 30 秒更新</div></div><span class="pill" id="status">尚未連線</span></header>
 <section class="card"><div class="row"><button class="primary" id="connect" disabled>連接裝置</button><button id="disconnect" disabled>中斷連線</button><button id="refresh" disabled>重新讀取</button></div><p class="hint">首次連線請在 Bluefy 中允許藍牙，並確保其他 Chameleon App 已斷線。</p><div id="error" role="status"></div></section>
 <section class="card"><h2>裝置資訊</h2><div class="grid"><div class="metric"><small>韌體版本</small><strong id="version">—</strong></div><div class="metric"><small>Git 版本</small><strong id="git">—</strong></div><div class="metric"><small>電量</small><strong id="battery">—</strong></div><div class="metric"><small>運作模式</small><strong id="mode">—</strong></div><div class="metric"><small>目前卡槽</small><strong id="active">—</strong></div><div class="metric"><small>裝置型號</small><strong id="model">—</strong></div><div class="metric"><small>BLE 位址</small><strong id="ble">—</strong></div></div></section>
+
+<section class="card">
+  <h2>讀取實體卡片</h2>
+  <p class="hint">將一張 HF 13.56 MHz 卡片貼近 Chameleon Ultra，再按下掃描。支援 ISO 14443-A。掃描期間會暫停卡片模擬，完成後恢復原模式。</p>
+  <div class="row"><button id="scan-card" disabled>掃描 HF 卡片</button><button id="clear-scan">清除結果</button></div>
+  <p id="scan-status" class="hint" role="status">連線後可掃描</p>
+  <div id="scan-results"></div>
+  <p class="muted">類型判斷依據卡片回應。相容卡或模擬卡可能回傳相同資訊，精確晶片型號與真偽仍可能無法確認。</p>
+</section>
 <section class="card"><div class="row spread"><h2>8 個卡槽</h2><span class="muted">切換不會清除資料</span></div><div id="slots" class="muted">連線後顯示卡槽狀態</div></section>
 
 <dialog id="slot-dialog" aria-labelledby="slot-dialog-title">
@@ -242,6 +251,8 @@ function updateControls() {
   $('status').classList.toggle('ok', linked);
   $('connect').disabled = !ready || linked || busy;
   $('disconnect').disabled = $('refresh').disabled = !linked || busy;
+  $('scan-card').disabled = !linked || !canWrite || busy || slotDialog.open;
+  $('clear-scan').disabled = busy;
   for (const key of ['hf', 'lf']) {
     $(key).disabled = !linked || !canWrite || busy || typeof enabled[active]?.[key] !== 'boolean';
   }
@@ -570,6 +581,8 @@ function disconnected() {
   fieldReset = null;
   fieldResetStatus = '連線後讀取裝置設定';
   cardSettings = [];
+  $('scan-results').replaceChildren();
+  show('scan-status', '連線後可掃描');
   for (const id of ['version', 'git', 'battery', 'mode', 'model', 'ble', 'active']) show(id, null);
   renderSlots();
 }
@@ -598,6 +611,11 @@ $('disconnect').onclick = () => run(async () => {
 });
 
 $('refresh').onclick = () => run(readAll);
+$('scan-card').onclick = () => run(scanPhysicalCard);
+$('clear-scan').onclick = () => {
+  $('scan-results').replaceChildren();
+  show('scan-status', linked ? '請貼近一張卡片後按掃描' : '連線後可掃描');
+};
 $('slot-cancel').onclick = () => slotDialog.close();
 slotDialog.addEventListener('cancel', event => {
   if (busy) event.preventDefault();
@@ -628,6 +646,123 @@ $('copylog').onclick = async () => {
   }
 };
 $('clearlog').onclick = () => { $('log').textContent = waiting; };
+
+function cardHex(bytes) {
+  return bytes?.length ? Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join(' ').toUpperCase() : '—';
+}
+
+function identifyCard(tag, version) {
+  const versionHex = version ? cardHex(version).replaceAll(' ', '') : '';
+  const ntagVersions = {
+    '0004040201000F03': 'NTAG213',
+    '0004040201001103': 'NTAG215',
+    '0004040201001303': 'NTAG216',
+  };
+  if (ntagVersions[versionHex]) return ntagVersions[versionHex] + ' 相容（依 GET_VERSION 回應）';
+  if (tag.sak?.length !== 1) return '無法判定卡片類型';
+  const sak = tag.sak[0];
+  const classic = {
+    0x08: 'MIFARE Classic 1K／MIFARE Plus SL1 相容',
+    0x18: 'MIFARE Classic 4K／MIFARE Plus SL1 相容',
+    0x09: 'MIFARE Mini 相容',
+  };
+  if (classic[sak]) return classic[sak] + '（依 SAK 推測）';
+  if (sak === 0 && tag.atqa?.length === 2 && tag.atqa[0] === 0x44 && tag.atqa[1] === 0) {
+    return 'MIFARE Ultralight／NTAG 相容系列（型號未確認）';
+  }
+  if (sak & 0x20) return 'ISO 14443-4 Type A（可能為 DESFire、Plus 或其他智慧卡）';
+  return 'ISO 14443-A（型號未確認）';
+}
+
+function renderScannedCard(tag, index, version) {
+  const result = document.createElement('div');
+  result.className = 'metric';
+  const title = document.createElement('h2');
+  title.textContent = '卡片 ' + (index + 1);
+  result.append(title);
+  const fields = [
+    ['類型／型號判斷', identifyCard(tag, version)],
+    ['UID', cardHex(tag.uid)],
+    ['UID 長度', tag.uid.length + ' 位元組'],
+    ['ATQA（裝置原始位元組順序）', cardHex(tag.atqa)],
+    ['SAK', cardHex(tag.sak)],
+    ['ATS', cardHex(tag.ats)],
+  ];
+  if (version) fields.push(['GET_VERSION', cardHex(version)]);
+  for (const [label, value] of fields) {
+    const line = document.createElement('p');
+    const caption = document.createElement('small');
+    const content = document.createElement('strong');
+    caption.textContent = label;
+    content.textContent = value;
+    line.append(caption, content);
+    result.append(line);
+  }
+  $('scan-results').append(result);
+}
+
+async function scanPhysicalCard() {
+  if (!linked || !canWrite || slotDialog.open) return;
+  $('scan-results').replaceChildren();
+  show('scan-status', '正在確認讀卡功能…');
+  let previousMode = null;
+  let modeChangeAttempted = false;
+  let failure = null;
+  try {
+    if (await ultra.cmdGetDeviceModel() !== sdk.DeviceModel.ULTRA) {
+      throw new Error('此功能需要支援讀卡的 Chameleon Ultra。');
+    }
+    if (!await ultra.isCmdSupported(sdk.Cmd.HF14A_SCAN)) throw new Error('目前韌體未回報支援 HF 卡片掃描。');
+    previousMode = await ultra.cmdGetDeviceMode();
+    if (![sdk.DeviceMode.TAG, sdk.DeviceMode.READER].includes(previousMode)) throw new Error('無法確認裝置原模式，請重新連線。');
+    modeChangeAttempted = previousMode !== sdk.DeviceMode.READER;
+    if (modeChangeAttempted) await ultra.cmdChangeDeviceMode(sdk.DeviceMode.READER);
+    show('mode', '讀卡（READER）');
+    show('scan-status', '正在掃描，請保持卡片貼近裝置…');
+    const tags = await ultra.cmdHf14aScan();
+    if (!linked) throw new Error('BLE 已中斷，請重新連線後掃描。');
+    if (!Array.isArray(tags) || !tags.length) throw new Error('未偵測到卡片，請將一張 HF 卡片貼近裝置後再試。');
+    let version = null;
+    const tag = tags[0];
+    if (tags.length === 1 && tag.sak?.[0] === 0 && tag.atqa?.[0] === 0x44 && tag.atqa?.[1] === 0 &&
+        await ultra.isCmdSupported(sdk.Cmd.HF14A_RAW)) {
+      try {
+        const response = await ultra.mfuGetVersion({ timeout: 500 });
+        if (response?.length === 8) {
+          const verified = await ultra.cmdHf14aScan();
+          if (verified.length !== 1 || cardHex(verified[0].uid) !== cardHex(tag.uid)) {
+            throw new Error('卡片已移動或更換');
+          }
+          version = response;
+        }
+      } catch {
+        log('無法確認卡片版本，顯示基本掃描資訊');
+      }
+    }
+    if (!linked) throw new Error('BLE 已中斷，請重新連線後掃描。');
+    tags.forEach((item, index) => renderScannedCard(item, index, index === 0 ? version : null));
+    show('scan-status', '已讀取 ' + tags.length + ' 張卡片。' + (tags.length > 1 ? '請只放一張卡片以便進一步辨識型號。' : ''));
+    log('實體卡片掃描完成');
+  } catch (error) {
+    const missing = error.status === 1;
+    failure = new Error(missing ? '未偵測到 HF 卡片，請貼近裝置後再試。' : error.message);
+    show('scan-status', failure.message);
+  } finally {
+    if (modeChangeAttempted) {
+      try {
+        if (!linked || !ultra.isConnected()) throw new Error('BLE 已中斷');
+        await ultra.cmdChangeDeviceMode(previousMode);
+        if (!linked || await ultra.cmdGetDeviceMode() !== previousMode) throw new Error('裝置未確認模式');
+        show('mode', previousMode === sdk.DeviceMode.TAG ? '模擬卡（TAG）' : '讀卡（READER）');
+      } catch {
+        show('mode', '模式待確認');
+        failure = new Error((failure ? failure.message + ' ' : '') + '未能確認恢復原模式，請重新連線並檢查裝置模式。');
+        show('scan-status', failure.message);
+      }
+    }
+  }
+  if (failure) throw failure;
+}
 window.addEventListener('pagehide', () => {
   stopPolling();
   if (ultra?.isConnected()) ultra.disconnect().catch(() => {});
