@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-wEAS9aMb+eV8IOUpa1s8hVKyjJYHGMOWq2wbJRUTtGc=' 'sha256-KU0Zopedl7pGcV0fY8+3mm0SyMGJ/QxmYt4uJOPpm/A=' 'sha256-9XJ3IkLUWPQJ63LQf2ocv0aIlHbSZqqTSvo/4AJOhNg='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE／USB 控制台</title><style>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'sha256-jLp6OU/CgJRV5ujk3j2k6Ep5SLgSY781QT9PIoZEZxI=' 'sha256-0Dqx1/2pjjsknsVuEO50Id0fZWY9bnWnZXYX3ysN3P0=' 'sha256-S8+SYf2kvjdjJ0LftncaAoL57d6UyTSFoznSACDlf0M=' 'sha256-wEAS9aMb+eV8IOUpa1s8hVKyjJYHGMOWq2wbJRUTtGc=' 'sha256-KU0Zopedl7pGcV0fY8+3mm0SyMGJ/QxmYt4uJOPpm/A=' 'sha256-8I4WF/LP6phIEvGjbjSF6lze1ax4xpns5cQpHTQ12uM='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Chameleon Ultra｜BLE／USB 控制台</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#e7eefb;background:#0b1220}*{box-sizing:border-box}body{margin:0;padding:18px 15px 45px;max-width:700px;margin-inline:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}h1{font-size:22px;margin:0}h2{font-size:16px;margin:0 0 13px}.muted{color:#99aac5;font-size:13px}.pill{font-size:12px;padding:7px 11px;background:#253044;border-radius:20px;color:#b9c9e4}.pill.ok{background:#124d42;color:#86f0cf}.card{background:#151f31;border:1px solid #2a3951;border-radius:17px;padding:17px;margin:13px 0}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.primary{background:#4f8bff;color:white;border:0}button{font:inherit;font-weight:600;padding:11px 14px;border-radius:11px;border:1px solid #40506a;background:#253650;color:#e7eefb;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.99)}button.danger{background:#3e2932;border-color:#74424e}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{background:#0e1726;border-radius:11px;padding:11px}.metric small{display:block;color:#94a8c8;margin-bottom:7px}.metric strong{font-size:15px;overflow-wrap:anywhere}.slot{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #34435c;border-radius:12px;padding:11px;margin:8px 0}.slot.active{border-color:#4f8bff;background:#1b3154}.slot b{display:block}.slot small{display:block;color:#a9bbd6;margin-top:4px;font-size:12px}.slot button{padding:8px 10px;white-space:nowrap}select{background:#0e1726;color:#fff;border:1px solid #40506a;border-radius:9px;padding:10px;max-width:100%}.switch{display:flex;align-items:center;gap:8px;font-size:14px}input[type=checkbox]{width:20px;height:20px;accent-color:#4f8bff}pre{background:#0b1220;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font-size:12px;line-height:1.55}.hint{font-size:13px;line-height:1.65;color:#aebfda}.warn{color:#ffd395}#error{color:#ff9fa9;font-size:13px;white-space:pre-wrap}footer{font-size:12px;color:#8194b2;margin-top:18px;line-height:1.6}a{color:#9ac0ff}
 #slot-dialog{width:min(94vw,520px);max-height:85vh;max-height:85dvh;padding:0;border:1px solid #40506a;border-radius:17px;background:#151f31;color:#e7eefb;overflow:auto}
 #slot-dialog::backdrop{background:#050912b8}
@@ -23,6 +23,8 @@
 .compare-byte.different,.compare-different{background:#62313b;color:#ffd0d6}
 .compare-byte.unknown{color:#97a6bf}
 .compare-block code{display:block;white-space:normal;overflow-wrap:anywhere;margin:5px 0}
+
+#compare-verified-keys code{display:block;overflow-wrap:anywhere;margin-top:9px;color:#b4d2ff}#compare-verified-keys small{display:block;color:#a9bbd6;margin:5px 0 12px}
 [hidden]{display:none!important}.page-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:17px 0}.page-tabs button{padding:12px 5px;font-size:14px;min-height:48px}.page-tabs [aria-selected=true]{background:#284d83;border-color:#6ea6ff;color:#fff}.page-tabs button:focus-visible{outline:2px solid #9ac0ff;outline-offset:3px}</style></head><body>
 <header><div><h1>Chameleon Ultra</h1><div class="muted">BLE／USB 控制台<br>卡槽每 0.5 秒更新 · 電量每 30 秒更新</div></div><span class="pill" id="status">尚未連線</span></header>
 <section class="card"><div class="row"><button class="primary" id="connect" disabled>BLE 藍牙連接</button><button class="primary" id="connect-usb" disabled>USB 有線連接</button><button id="disconnect" disabled>中斷連線</button><button id="refresh" disabled>重新讀取</button></div><p class="hint" id="connection-help" role="status">正在檢查瀏覽器連線支援…</p><div id="error" role="status"></div></section>
@@ -79,7 +81,7 @@
     <label for="compare-sector-keys" style="margin-top:12px">候選金鑰清單 · 每行一組 12 位十六進位金鑰</label>
     <textarea id="compare-sector-keys" autocomplete="off" spellcheck="false" rows="5" placeholder="FFFFFFFFFFFF&#10;A0A1A2A3A4A5"></textarea>
     <p class="muted" id="compare-key-count">尚未加入候選金鑰</p>
-    <p class="hint">每個扇區會優先驗證上方共用金鑰，再按清單順序嘗試 Key A／Key B。重複項目自動合併，已成功的金鑰會用於該扇區的後續讀取。未命中或讀不到的資料會保留狀態。Key A 與受保護的 Key B 仍以 ?? 表示。</p>
+    <p class="hint">每個扇區會優先驗證上方共用金鑰，再按清單順序嘗試 Key A／Key B。重複項目自動合併，已成功的金鑰會用於該扇區的後續讀取。未命中或讀不到的資料會保留狀態。驗證成功的金鑰會另列明文與來源；未驗證成功仍顯示 ??。原始讀值中的受保護金鑰維持 ??。</p>
   </fieldset>
   <div class="row">
     <button id="compare-a" disabled>讀取 A 卡</button><button id="compare-b" disabled>讀取 B 卡</button>
@@ -89,8 +91,9 @@
   <div class="grid"><p id="compare-a-summary">A 卡尚未讀取</p><p id="compare-b-summary">B 卡尚未讀取</p></div>
   <p id="compare-summary" class="hint" role="status">完成 A／B 讀取後自動比對</p>
   <div id="compare-meta"></div>
+  <div id="compare-verified-keys"></div>
   <label class="switch"><input id="compare-only-differences" type="checkbox" checked>區塊只顯示差異與未確認項目</label>
-  <p class="muted">紅色表示已讀資料不同；?? 表示未取得或受保護。扇區尾端的金鑰隱藏位元組不會當成相同資料。</p>
+  <p class="muted">紅色表示已讀資料不同；?? 表示未取得或受保護。以下為卡片原始讀值；受保護的金鑰不會直接讀出。已驗證金鑰請看上方獨立結果，原始讀值的未確認數不包含金鑰驗證結果。</p>
   <div id="compare-blocks"></div>
   <details><summary>讀取順序與回應紀錄</summary>
     <p class="hint">這裡記錄本網站的 SDK 操作、成功／失敗與整體耗時。耗時包含 BLE 與系統延遲，不能用來判定晶片的射頻時序。此紀錄不含門禁讀卡機的無線對話或完整原始封包。</p>
@@ -997,6 +1000,44 @@ function comparisonMaskedBytes(bytes, isTrailer) {
   return data;
 }
 
+function comparisonRememberKey(snapshot, sector, type, key, source) {
+  snapshot.verifiedKeys ??= {};
+  snapshot.verifiedKeys[sector] ??= {};
+  snapshot.verifiedKeys[sector][type] = { key, source };
+}
+
+function comparisonKeyResult(a, b) {
+  if (!a || !b) return '未確認';
+  return a.key === b.key ? '相同' : '不同';
+}
+
+function renderVerifiedKeys() {
+  const target = $('compare-verified-keys');
+  target.replaceChildren();
+  const a = comparisonSnapshots.A;
+  const b = comparisonSnapshots.B;
+  const count = Math.max(a?.blockCount ?? 0, b?.blockCount ?? 0);
+  if (!count) return;
+  target.append(comparisonElement('h3', '已驗證金鑰 A／B'));
+  target.append(comparisonElement('p', '下列金鑰來自你提供的輸入，經卡片驗證成功；不是從卡片直接讀回。原始區塊的 ?? 與金鑰驗證結果分開比較。', 'hint'));
+  for (const {sector} of comparisonLayout(count)) {
+    const section = comparisonElement('div', undefined, 'compare-block');
+    section.append(comparisonElement('b', '扇區 ' + sector));
+    for (const type of ['A', 'B']) {
+      const av = a?.verifiedKeys?.[sector]?.[type];
+      const bv = b?.verifiedKeys?.[sector]?.[type];
+      const result = comparisonKeyResult(av, bv);
+      const heading = comparisonElement('p', 'Key ' + type + ' 比對：' + result, result === '不同' ? 'compare-different' : 'hint');
+      section.append(heading);
+      for (const [side, value] of [['A', av], ['B', bv]]) {
+        section.append(comparisonElement('code', side + ' 卡 Key ' + type + '：' + (value ? value.key.match(/../g).join(' ') : '?? ?? ?? ?? ?? ??')));
+        section.append(comparisonElement('small', value ? '已驗證成功 · 來源：' + value.source : '尚未驗證成功'));
+      }
+    }
+    target.append(section);
+  }
+}
+
 async function readComparisonBlocks(snapshot, keys) {
   for (const group of comparisonLayout(snapshot.blockCount)) {
     let sectorKeys = keys[group.sector];
@@ -1020,6 +1061,7 @@ async function readComparisonBlocks(snapshot, keys) {
           }));
           if (bytes?.length !== 16) throw new Error('區塊回應長度異常。');
           await comparisonCheckCard(snapshot, '區塊 ' + block + ' 讀取後確認卡片');
+          comparisonRememberKey(snapshot, group.sector, type, sectorKeys[type], sectorKeys.candidates.length ? snapshot.verifiedKeys?.[group.sector]?.[type]?.source ?? '候選清單' : '共用 Key ' + type + '（成功讀取時驗證）');
           item.data = comparisonMaskedBytes(bytes, item.trailer);
           item.status = '已讀取（Key ' + type + '）';
           break;
@@ -1061,6 +1103,11 @@ async function comparisonFindSectorKeys(snapshot, group, supplied) {
     const entry = snapshot.trace.findLast(item => item.action === '扇區 ' + group.sector + ' Key ' + type + ' 清單驗證');
     entry.result = matched ? '第 ' + attempts + ' 組驗證成功' : '已嘗試 ' + attempts + ' 組，均未命中';
     await comparisonCheckCard(snapshot, '扇區 ' + group.sector + ' Key ' + type + ' 驗證後確認卡片');
+    if (matched) {
+      const key = found[type];
+      const source = key === supplied[type] ? '共用 Key ' + type : '候選清單第 ' + (supplied.candidates.indexOf(key) + 1) + ' 組（去重後）';
+      comparisonRememberKey(snapshot, group.sector, type, key, source);
+    }
   }
   return found;
 }
@@ -1070,7 +1117,7 @@ async function captureComparison(side) {
   if (![0, 20, 64, 128, 256].includes(blockCount)) throw new Error('讀取範圍有誤。');
   const keys = blockCount ? comparisonKeys(blockCount) : [];
   if (comparisonSnapshots[side] && !confirm('以新讀取結果取代 ' + side + ' 卡的比對資料？')) return;
-  const snapshot = { side, blockCount, trace: [], blocks: [], meta: null, identity: null, finished: false, note: '準備讀取', error: null, restore: null };
+  const snapshot = { side, blockCount, trace: [], blocks: [], verifiedKeys: {}, meta: null, identity: null, finished: false, note: '準備讀取', error: null, restore: null };
   for (const group of comparisonLayout(blockCount)) {
     for (let offset = 0; offset < group.length; offset++) {
       snapshot.blocks.push({ block: group.start + offset, sector: group.sector, trailer: offset === group.length - 1, data: null, status: '尚未讀取' });
@@ -1174,6 +1221,7 @@ function comparisonElement(tag, text, className) {
 }
 
 function renderComparison() {
+  renderVerifiedKeys();
   for (const side of ['A', 'B']) {
     const snapshot = comparisonSnapshots[side];
     const id = side.toLowerCase();
@@ -1258,7 +1306,7 @@ function renderComparison() {
     const section = comparisonElement('div', undefined, 'compare-block');
     section.append(comparisonElement('b', '區塊 ' + block + ((av ?? bv).trailer ? ' · 扇區尾端' : '') + ' · 差異 ' + result.different + ' B／未確認 ' + result.unknown + ' B'));
     for (const [label, value, other] of [['A', av, bv], ['B', bv, av]]) {
-      const line = comparisonElement('code', label + ' ');
+      const line = comparisonElement('code', label + ' 原始讀值 ');
       for (let index = 0; index < 16; index++) {
         const byte = value?.data?.[index];
         const otherByte = other?.data?.[index];
