@@ -23,6 +23,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare official Ultra firmware
+        run: node scripts/prepare-firmware.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
